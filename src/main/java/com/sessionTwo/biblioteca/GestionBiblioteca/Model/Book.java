@@ -22,13 +22,13 @@ public class Book {
     private String year;
 
     //relaciones
-    @OneToMany
+    @OneToOne
     private Autor autor;
 
-    @OneToMany
+    @OneToOne
     private Category category;
 
-    @OneToMany
+    @OneToOne
     private Editorial editorial;
 
     //constructores

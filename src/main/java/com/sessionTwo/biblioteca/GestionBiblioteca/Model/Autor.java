@@ -17,14 +17,13 @@ public class Autor {
     @Column(name = "str_born_year")
     private String bornYear;
 
-    @ManyToOne
+    @OneToOne
     private Book book;
 
-    public Autor(Integer id, String name, String bornYear, Book book) {
+    public Autor(Integer id, String name, String bornYear) {
         this.id = id;
         this.name = name;
         this.bornYear = bornYear;
-        this.book = book;
     }
 
     public Autor() {
@@ -55,13 +54,6 @@ public class Autor {
         this.bornYear = bornYear;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
 
     @Override
     public String toString() {
@@ -69,7 +61,6 @@ public class Autor {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", bornYear='" + bornYear + '\'' +
-                ", book=" + book +
                 '}';
     }
 }

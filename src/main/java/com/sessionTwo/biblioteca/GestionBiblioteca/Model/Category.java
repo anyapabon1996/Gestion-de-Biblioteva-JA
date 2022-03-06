@@ -14,13 +14,12 @@ public class Category {
     @Column(name = "str_category")
     private String category;
 
-    @ManyToOne
+    @OneToOne
     private Book book;
 
     public Category(Integer id, String category, Book book) {
         this.id = id;
         this.category = category;
-        this.book = book;
     }
 
     public Category() {
@@ -43,20 +42,11 @@ public class Category {
         this.category = category;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
                 ", category='" + category + '\'' +
-                ", book=" + book +
                 '}';
     }
 }

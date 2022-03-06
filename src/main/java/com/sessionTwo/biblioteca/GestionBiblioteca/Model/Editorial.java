@@ -17,14 +17,13 @@ public class Editorial {
     @Column(name = "int_star")
     private Integer star;
 
-    @ManyToOne
+    @OneToOne
     private Book book;
 
     public Editorial(Integer id, String editorial, Integer star, Book book) {
         this.id = id;
         this.editorial = editorial;
         this.star = star;
-        this.book = book;
     }
 
     public Editorial() {
@@ -54,21 +53,12 @@ public class Editorial {
         this.star = star;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
     @Override
     public String toString() {
         return "Editorial{" +
                 "id=" + id +
                 ", editorial='" + editorial + '\'' +
                 ", star=" + star +
-                ", book=" + book +
                 '}';
     }
 }
