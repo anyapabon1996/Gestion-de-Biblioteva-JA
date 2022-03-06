@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface BookRepositiry extends CrudRepository<Book,Integer> {
 
-    //NO SE PUEDEN HACR SCRIPTS PROPIOS AQUI
     @Query(value = "select * from tbl_book;", nativeQuery = true)
     List<Book> findAllBooks();
 }

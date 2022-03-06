@@ -22,18 +22,20 @@ public class Book {
     private String year;
 
     //relaciones
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="int_id_autor")
     private Autor autor;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="int_id_category")
     private Category category;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="int_id_editorial")
     private Editorial editorial;
 
     //constructores
-    public Book(Integer id, String title, Integer pages, String year, Autor autor, Category category, Editorial editorial) {
-        this.id = id;
+    public Book(String title, Integer pages, String year, Autor autor, Category category, Editorial editorial) {
         this.title = title;
         this.pages = pages;
         this.year = year;
@@ -102,16 +104,16 @@ public class Book {
         this.editorial = editorial;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", pages=" + pages +
-                ", year='" + year + '\'' +
-                ", autor=" + autor +
-                ", category=" + category +
-                ", editorial=" + editorial +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Book{" +
+//                "id=" + id +
+//                ", title='" + title + '\'' +
+//                ", pages=" + pages +
+//                ", year='" + year + '\'' +
+//                ", autor=" + autor +
+//                ", category=" + category +
+//                ", editorial=" + editorial +
+//                '}';
+//    }
 }

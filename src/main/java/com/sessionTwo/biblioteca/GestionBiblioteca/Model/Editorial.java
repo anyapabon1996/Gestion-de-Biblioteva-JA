@@ -1,6 +1,8 @@
 package com.sessionTwo.biblioteca.GestionBiblioteca.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_editorial")
@@ -8,7 +10,7 @@ public class Editorial {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "int_id")
+    @Column(name = "int_id_editorial")
     private Integer id;
 
     @Column(name = "str_edit")
@@ -17,13 +19,14 @@ public class Editorial {
     @Column(name = "int_star")
     private Integer star;
 
-    @OneToOne
-    private Book book;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="editorial_id")
+    private List<Book> books;
 
-    public Editorial(Integer id, String editorial, Integer star, Book book) {
-        this.id = id;
+    public Editorial(String editorial, Integer star) {
         this.editorial = editorial;
         this.star = star;
+        this.books = new ArrayList<Book>();
     }
 
     public Editorial() {
@@ -51,6 +54,14 @@ public class Editorial {
 
     public void setStar(Integer star) {
         this.star = star;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     @Override

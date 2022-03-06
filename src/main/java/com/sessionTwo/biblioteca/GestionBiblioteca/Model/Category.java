@@ -8,17 +8,13 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "int_id")
+    @Column(name = "int_id_category")
     private Integer id;
 
     @Column(name = "str_category")
     private String category;
 
-    @OneToOne
-    private Book book;
-
-    public Category(Integer id, String category, Book book) {
-        this.id = id;
+    public Category(String category) {
         this.category = category;
     }
 
